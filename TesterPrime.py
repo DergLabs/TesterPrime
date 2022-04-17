@@ -29,7 +29,7 @@ def genPrime(CPU_CORE, exec_time, exec_num, test_time, operation_time):
             q += 1
             end = time.time()
 
-            # if CPU_CORE == 0: #If we are running core 0, print out the current status, used to make sure the program is running (it also looks nice :3)
+            # if CPU_CORE == 1: #If we are running core 1, print out the current status, used to make sure the program is running (it also looks nice :3)
             #     print("Running Prime Calculator on core #{}, iteration #{}, prime number: {} | Time: {:.5f}".format(CPU_CORE, exec_index, q, end-start), end = "\r")
             if end-start >= test_time: #If we have reached the desired time, record how many executions each CPU has done, how long it took, and end the loop
                 exec_num[CPU_CORE] = exec_index
