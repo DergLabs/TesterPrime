@@ -37,13 +37,14 @@ def genPrime(CPU_CORE, exec_time, exec_num, test_time, operation_time):
                 break
 
 def timer(freeCore, totalCores, exec_time):
-    runtime = 0
-    while True:
-        runtime += 0.01 #Simple and not very accurate, just used to display something while we wait for the test to run
-        time.sleep(0.01)
-        print("Running Prime Calculator on cores #{} - {} | Run Time: {:.2f} seconds | Time Left: {:.2f} seconds".format(freeCore+1, totalCores-1, runtime, exec_time - runtime), end = "\r")
-        if runtime >= exec_time:
-            break
+    runtime = exec_time
+    while runtime:
+        mins, secs = divmod(runtime, 60)
+        timer = '{:02d}:{:02d}'.format(mins, secs)
+        print("Running Prime Calculator on cores #{} - {} | Time Left: {} seconds".format(freeCore+1, totalCores-1, timer), end = "\r")
+        time.sleep(1)
+        runtime -= 1
+
 
 def createProcess(core_Count):
     for i in range(core_Count): #For the specified number of cores, append that number to CPU_
